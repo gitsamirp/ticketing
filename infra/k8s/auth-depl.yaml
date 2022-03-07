@@ -13,15 +13,9 @@ spec:
         app: auth
     spec:
       containers:
-      - name: auth
-        image: samirp123/auth
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-
+        - name: auth
+          image: samirp123/auth
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -30,7 +24,7 @@ spec:
   selector:
     app: auth
   ports:
-  - name: auth
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
