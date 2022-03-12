@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.post('/api/users/signup', (req, res) => {
+router.get('/api/users/currentuser', (req, res) => {
     res.send('Hi there');
 });
 
