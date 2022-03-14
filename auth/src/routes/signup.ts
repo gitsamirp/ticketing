@@ -14,7 +14,7 @@ router.post('/api/users/signup', [
         .isLength({ min: 5, max: 20 })
         .withMessage('Passowrd must be within 5 and 20 characters')
 ],
-(req: Request, res: Response) => {
+async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (errors.isEmpty() === false) {
         throw new RequestValidationError(errors.array())

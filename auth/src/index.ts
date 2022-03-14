@@ -1,6 +1,8 @@
 const express = require('express');
+import 'express-async-errors'
 const bodyParser = require('body-parser');
 
+import { NotFoundError } from "./errors/not-found-error";
 import { errorhandler } from "./middlewares/error-handler";
 import { currentUserRouter } from "./routes/current-user";
 import { signinRouter } from "./routes/signin";
@@ -17,6 +19,10 @@ app.use(signoutRouter);
 app.use(signupRouter);
 
 app.use(errorhandler);
+
+app.get('*', async (req, res) => {
+    throw new NotFoundError()
+});
 
 app.listen(3000, () => {
     console.log("listening on portsss 3000");
