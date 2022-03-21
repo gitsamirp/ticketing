@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-userSchema.pre('save', async function(done) {
+userSchema.pre('save', async function(done) { //use function instead of arrow function to make this equal to mongoose context intead of file.
     if (this.isModified('password')) {
         const hashed = await Password.hash(this.get('password'));
         this.set('password', hashed);
