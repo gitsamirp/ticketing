@@ -38,7 +38,7 @@ async (req: Request, res: Response) => {
     const userJwt = jwt.sign({
         id: user.id,
         email: user.email,
-    }, 'ham');
+    }, process.env.JWT_KEY!); // exclamation overides typescripts error because we have already added a check in index ts
 
     // store jwt on session
     req.session = {
