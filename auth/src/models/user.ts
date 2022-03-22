@@ -27,6 +27,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     }
+}, {
+    toJSON: {
+        transform(doc, ret) { // custom transform to make sure our return data is consistant and doenst include anything not needed, could be moved to view
+            ret.id = ret._id;
+            delete ret.id;
+            delete ret.password;
+            delete ret.__v; //could remove by passing in option
+
+        }
+    }
 });
 
 userSchema.pre('save', async function(done) { //use function instead of arrow function to make this equal to mongoose context intead of file.
