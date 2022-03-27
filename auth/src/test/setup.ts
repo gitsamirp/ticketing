@@ -5,10 +5,10 @@ import { app } from '../app';
 let mongo: any;
 beforeAll(async () => {
     process.env.JWT_KEY = "sdfsdfs";
-    mongo = new MongoMemoryServer();
-    const mongoUri = await mongo.getUri();
+    mongo = await MongoMemoryServer.create();
+    const uri = mongo.getUri();
 
-    await mongoose.connect(mongoUri);
+    await mongoose.connect(uri);
 });
 
 beforeEach(async () => {

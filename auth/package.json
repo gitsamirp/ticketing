@@ -10,7 +10,8 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "setupFilesAfterEnd": [
+    "testURL": "http://localhost:3000",
+    "setupFilesAfterEnv": [
       "./src/test/setup.ts"
     ]
   },
