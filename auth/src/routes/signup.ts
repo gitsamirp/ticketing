@@ -19,6 +19,8 @@ router.post('/api/users/signup', [
 ],
 validateRequest,
 async (req: Request, res: Response) => {
+    console.log("here");
+
     //does email already exist
     const { email, password } = req.body;
 
