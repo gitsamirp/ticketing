@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(
     cookieSession({
         signed: false,
-        secure: true,
+        secure: process.env.NODE_ENV !== 'test', //do this to test for cookies as if secure is true then it wont set cookie on test
     })
 );
 
