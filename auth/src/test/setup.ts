@@ -8,7 +8,7 @@ declare global {
 }
 
 let mongo: any;
-beforeAll(async () => {
+beforeAll(async () => { //runs before all tests
     process.env.JWT_KEY = "sdfsdfs";
     mongo = await MongoMemoryServer.create();
     const uri = mongo.getUri();

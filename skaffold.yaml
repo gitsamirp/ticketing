@@ -16,5 +16,13 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: samirp123/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.ts'
+            dest: .
 
   
