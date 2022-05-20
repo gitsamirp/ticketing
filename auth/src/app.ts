@@ -2,9 +2,7 @@ import express, { Request, Response } from 'express';
 import cookieSession from 'cookie-session';
 import 'express-async-errors'
 const bodyParser = require('body-parser');
-
-import { NotFoundError } from "./errors/not-found-error";
-import { errorhandler } from "./middlewares/error-handler";
+import { errorhandler, NotFoundError } from '@samirlfc1/common';
 import { currentUserRouter } from "./routes/current-user";
 import { signinRouter } from "./routes/signin";
 import { signoutRouter } from "./routes/signout";
