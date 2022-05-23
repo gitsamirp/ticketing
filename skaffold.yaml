@@ -24,5 +24,13 @@ build:
         manual:
           - src: '**/*.ts'
             dest: .
+    - image: samirp123/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
 
   
