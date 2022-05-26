@@ -2,7 +2,9 @@ import express, { Request, Response } from 'express';
 import cookieSession from 'cookie-session';
 import 'express-async-errors'
 const bodyParser = require('body-parser');
-import { errorhandler, NotFoundError } from '@samirlfc1/common';
+import { errorhandler, NotFoundError, currentUser } from '@samirlfc1/common';
+import { createTicketRouter } from './routes/new';
+
 
 const app = express();
 app.set('trust proxy', true);
@@ -14,6 +16,8 @@ app.use(
         secure: process.env.NODE_ENV !== 'test', //do this to test for cookies as if secure is true then it wont set cookie on test
     })
 );
+app.use(currentUser); // must be after cookie session
+app.use(createTicketRouter);
 
 app.use(errorhandler);
 
