@@ -12,7 +12,7 @@ interface UserModel extends mongoose.Model<UserDocument> {
     register(params: UserParams): UserDocument;
 }
 
-// propeties of user document
+// properties of user document
 interface UserDocument extends mongoose.Document<any> {
     email: string;
     password: string;
