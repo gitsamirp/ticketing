@@ -4,6 +4,7 @@ import 'express-async-errors'
 const bodyParser = require('body-parser');
 import { errorhandler, NotFoundError, currentUser } from '@samirlfc1/common';
 import { createTicketRouter } from './routes/new';
+import { showTicketRouter } from './routes/show';
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(
 );
 app.use(currentUser); // must be after cookie session
 app.use(createTicketRouter);
+app.use(showTicketRouter);
 
 app.use(errorhandler);
 
