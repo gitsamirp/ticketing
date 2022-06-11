@@ -35,7 +35,7 @@ global.getAuthCookie = () => {
   // create the jwt with payload
   const jwtToken = jwt.sign(
     {
-      id: "23sjdfh",
+      id: new mongoose.Types.ObjectId().toHexString(),
       email: "example@example.com",
     },
     process.env.JWT_KEY!,
